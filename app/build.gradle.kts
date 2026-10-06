@@ -16,6 +16,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        val apiKey = project.findProperty("OPENROUTER_API_KEY") as? String ?: "\"\""
+        buildConfigField("String", "OPENROUTER_API_KEY", "\"$apiKey\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
